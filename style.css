@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(204, 86%, 23%);
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-app {
+    position: relative;
+    background-color: white;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 50px auto;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Adding the animated border using the ::before pseudo-element */
+.weather-app::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(270deg, #ff0000, #ff8000, #ffff00, #00ff00, #0000ff, #ff00ff, #ff0000);
+    background-size: 400% 400%;
+    border-radius: 20px;
+    animation: animateBorder 8s ease infinite;
+}
+
+/* Keyframe to animate the background gradient */
+@keyframes animateBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 20px;
+    border: 2px solid #3498db;
+    border-radius: 15px;
+    font-size: 1rem;
+    height: 3.5rem;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.1), inset -5px -5px 10px rgba(255, 255, 255, 0.7);
+}
+
+.search-btn {
+    background-color: #3498db;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    margin-left: 10px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.search-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.city-date-section {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.city-date-section .city {
+    font-size: 2rem;
+    opacity: 0.9;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.city-date-section .date {
+    background-color: #c3eaf4;
+    padding: 5px 10px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1), -2px -2px 8px rgba(255, 255, 255, 0.7);
+}
+
+.temperature-info {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.temperature-info .temp {
+    font-size: 10rem;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    color: #3498db;
+}
+
+.temperature-info .description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.temperature-info .description i {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.temperature-info .description span {
+    font-size: 1.5rem;
+}
+
+.additional-info {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.wind-info,
+.humidity-info,
+.visibility-info {
+    background: linear-gradient(145deg, #ecf0f1, #e0e4e5);
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.wind-info:hover,
+.humidity-info:hover,
+.visibility-info:hover {
+    transform: translateY(-5px);
+}
+
+.additional-info .material-icons {
+    font-size: 3rem;
+    opacity: 0.8;
+}
+
+.wind-info div,
+.humidity-info div,
+.visibility-info div {
+    text-align: center;
+}
